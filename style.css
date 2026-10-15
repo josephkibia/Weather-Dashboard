@@ -1,0 +1,262 @@
+*{
+    margin: o;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #e8ecf1;
+    color: #333;
+    min-height: 97vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+.app {
+    width: 100%;
+    max-width: 700px;
+    background-color: antiquewhite;
+}
+/* --- Header --- */
+header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+header h1 {
+    font-size: 1.8rem;
+    color: #1a1a2e;
+}
+/* --- Search --- */
+.search-section {
+    margin-bottom: 24px;
+}
+.search-bar {
+    display: flex;
+    gap: 8px;
+}
+#city-input {
+    flex: 1;
+    padding: 14px 18px;
+    border: 2px solid #ccd0d5;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+    background-color: #fff;
+}
+#city-input:focus {
+    border-color: #4a90d9;
+}
+#search-btn {
+    padding: 14px 28px;
+    background-color: #4a90d9;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#search-btn:hover {
+    background-color: #357abd;
+}
+#search-btn:disabled {
+    background-color: #a0b4c8;
+    cursor: not-allowed;
+}
+/* --- Search History --- */
+.search-history {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+.history-btn {
+    padding: 6px 14px;
+    background-color: #fff;
+    border: 1px solid #ccd0d5;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: #555;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.history-btn:hover {
+    background-color: #4a90d9;
+    color: #fff;
+    border-color: #4a90d9;
+}
+/* --- Error --- */
+.error-message {
+    text-align: center;
+    padding: 20px;
+    background-color: #fdecea;
+    border: 1px solid #f5c6cb;
+    border-radius: 10px;
+    color: #c0392b;
+    margin-bottom: 24px;
+}
+/* --- Hidden utility --- */
+.hidden {
+    display: none;
+}
+/* --- Current Weather --- */
+.weather-display {
+    animation: fadeIn 0.3s ease-in;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.current-weather {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+.current-main {
+    flex: 1;
+}
+.current-main h2 {
+    font-size: 1.5rem;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+}
+
+.temp-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.temp-section img {
+    width: 64px;
+    height: 64px;
+}
+
+.temperature {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a1a2e;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #666;
+    text-transform: capitalize;
+}
+
+.current-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.detail-label {
+    font-size: 0.8rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* --- Forecast --- */
+.forecast-section {
+    margin-bottom: 24px;
+}
+
+.forecast-section h3 {
+    font-size: 1.1rem;
+    color: #1a1a2e;
+    margin-bottom: 16px;
+}
+
+.forecast-cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.forecast-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 16px 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.forecast-card .day {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.forecast-card img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+}
+
+.forecast-card .temp-high {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.forecast-card .temp-low {
+    font-size: 0.85rem;
+    color: #999;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    .current-weather {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .current-details {
+        flex-direction: row;
+        justify-content: center;
+        gap: 24px;
+    }
+
+    .detail {
+        align-items: center;
+    }
+
+    .forecast-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .temperature {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .forecast-cards {
+        grid-template-columns: 1fr;
+    }
+}
